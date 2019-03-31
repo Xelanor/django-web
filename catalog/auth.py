@@ -34,19 +34,9 @@ class Insta():
         #proxy = 'xelanor:RKe5tuXt@185.225.36.88:11475'
         #chrome_options.add_extension(create_proxy_extension(proxy))
         #os.chmod('/app/InstaPy/assets/chromedriver', 0o755)
-        self.driver = webdriver.Chrome("C:\\Users\\beroz\\Google Drive (berkezelsel@gmail.com)\\Python_works\\first_app\\python-docs-samples\\appengine\\standard_python37\\hello_world\\python-getting-started\\InstaPy\\assets\\chromedriver.exe", chrome_options=chrome_options)
-
-        CHROMEDRIVER_PATH = "/app/.chromedriver/bin/chromedriver"
-
-        chrome_bin = os.environ.get('GOOGLE_CHROME_BIN', "chromedriver")
-        options = webdriver.ChromeOptions()
-        options.binary_location = chrome_bin
-        options.add_argument("--disable-gpu")
-        options.add_argument("--no-sandbox")
-        options.add_argument('headless')
-        options.add_argument('window-size=1200x600')
-        self.driver = webdriver.Chrome(executable_path='/app/vendor/firefox', chrome_options=options)
-        driver = webdriver.Firefox(options=options, executable_path='/app/vendor/firefox')
+        #self.driver = webdriver.Chrome("C:\\Users\\beroz\\Google Drive (berkezelsel@gmail.com)\\Python_works\\first_app\\python-docs-samples\\appengine\\standard_python37\\hello_world\\python-getting-started\\InstaPy\\assets\\chromedriver.exe", chrome_options=chrome_options)
+        self.driver = webdriver.Chrome("/usr/local/bin/chromedriver", chrome_options=chrome_options)
+        
     def login_user(self, username, password):
         driver = self.driver
         #log_location = os.path.join(self.BASE_DIR, 'InstaPy/logs')
