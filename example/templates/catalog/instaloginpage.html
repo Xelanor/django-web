@@ -1,0 +1,20 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+<p>Welcome, {{ user.get_username|title }}. Thanks for logging in.</p>
+{% else %}
+<p>Wlcome, new user. Please log in.</p>
+{% endif %}
+
+  <h1>Instagram Login Page</h1>
+    
+  <form action="" method="post">
+    {% csrf_token %}
+    <table>
+    {{ form }}
+    </table>
+    <input type="submit" value="Submit">
+  </form>
+{% endblock %}
