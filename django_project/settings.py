@@ -82,14 +82,21 @@ WSGI_APPLICATION = 'django_project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
 
+#DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#        'NAME': 'postgres',
+#        'USER': 'postgres',
+#        'PASSWORD': 'cb2d639cbe6db9b6faa99a655fde3f50',
+#        'HOST': 'localhost',
+#        'PORT': '5433',
+#    }
+#}
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'postgres',
-        'USER': 'postgres',
-        'PASSWORD': 'cb2d639cbe6db9b6faa99a655fde3f50',
-        'HOST': 'localhost',
-        'PORT': '5433',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 
@@ -112,6 +119,14 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, "static_my_proj"),
+)
+STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static_cdn", "static_root")
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static_cdn", "media_root")
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 # Allow Django from all hosts. This snippet is installed from
 # /var/lib/digitalocean/allow_hosts.py
